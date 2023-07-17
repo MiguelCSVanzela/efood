@@ -15,7 +15,7 @@ const Header = ({ layout }: Props) => (
           style={{ backgroundImage: `url(${vector})` }}
         >
           <div className="container">
-            <Link to="/perfil">
+            <Link to="/">
               <img src={logo} alt="Logo efood" />
             </Link>
             <p>Viva experiências gastronômicas no conforto da sua casa</p>
@@ -29,11 +29,11 @@ const Header = ({ layout }: Props) => (
           style={{ backgroundImage: `url(${vector})` }}
         >
           <div className="container">
-            <HeaderLink href="#">Restaurantes</HeaderLink>
+            <HeaderLink to="/">Restaurantes</HeaderLink>
             <Link to="/">
               <img src={logo} alt="Logo efood" />
             </Link>
-            <HeaderLink href="#">0 produto(s) no carrinho</HeaderLink>
+            <HeaderLink to="#">0 produto(s) no carrinho</HeaderLink>
           </div>
         </HeaderContainer>
       </>

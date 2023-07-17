@@ -1,40 +1,52 @@
+import { Link } from "react-router-dom";
+
 import Tag from "../Tag";
 import Button from "../Button";
 import { Content, ItemContainer, Tags } from "./styles";
-import star from "../../assets/images/star.svg";
 import { HeaderItem } from "./styles";
+import star from "../../assets/images/star.svg";
 
 type Props = {
-  infos: [boolean, string];
-  image: string;
-  title: string;
-  description: string;
-  rate: number;
+  id: number;
+  titulo: string;
+  destacado: boolean;
+  tipo: string;
+  avaliacao: number;
+  descricao: string;
+  capa: string;
 };
-const Item = ({ infos, image, title, description, rate }: Props) => {
+const Item = ({
+  id,
+  titulo,
+  destacado,
+  tipo,
+  avaliacao,
+  descricao,
+  capa,
+}: Props) => {
+  function getDescricao(descricao: string) {
+    if (descricao.length > 248) {
+      return descricao.slice(0, 248) + "...";
+    }
+  }
   return (
     <ItemContainer>
-      <img src={image} alt="Prato com sushi" />
+      <img src={capa} alt={titulo} />
       <Tags>
-        {infos[0] === true ? (
-          <>
-            <Tag>Destaque</Tag>
-            <Tag>{infos[1]}</Tag>
-          </>
-        ) : (
-          <Tag>{infos[1]}</Tag>
-        )}
+        {destacado && <Tag>Destaque</Tag>}
+        <Tag>{tipo}</Tag>
       </Tags>
       <Content>
         <HeaderItem>
-          <h3>{title} </h3>
+          <h3>{titulo} </h3>
           <span>
-            {rate} <img src={star} alt="" />
+            {avaliacao} <img src={star} alt="" />
           </span>
         </HeaderItem>
-
-        <p>{description}</p>
-        <Button theme="vermelho">Saiba Mais</Button>
+        <p>{getDescricao(descricao)}</p>
+        <Link to={`/perfil/${id}`}>
+          <Button theme="vermelho">Saiba Mais</Button>
+        </Link>
       </Content>
     </ItemContainer>
   );

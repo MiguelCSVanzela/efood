@@ -1,24 +1,27 @@
 import Item from "../Item";
 import { ListContainer } from "./styles";
-import ListClass from "../../models/List";
+import { Restaurante } from "../../pages/Home";
 
 type Props = {
-  list: ListClass[];
+  restaurantes: Restaurante[];
 };
 
-const List = ({ list }: Props) => {
+const List = ({ restaurantes }: Props) => {
   return (
     <ListContainer>
       <div className="container">
-        {list.map((item) => (
-          <Item
-            key={item.id}
-            infos={item.infos}
-            image={item.image}
-            title={item.title}
-            description={item.description}
-            rate={item.rate}
-          />
+        {restaurantes.map((restaurante) => (
+          <li key={restaurante.id}>
+            <Item
+              id={restaurante.id}
+              titulo={restaurante.titulo}
+              destacado={restaurante.destacado}
+              tipo={restaurante.tipo}
+              descricao={restaurante.descricao}
+              avaliacao={restaurante.avaliacao}
+              capa={restaurante.capa}
+            />
+          </li>
         ))}
       </div>
     </ListContainer>

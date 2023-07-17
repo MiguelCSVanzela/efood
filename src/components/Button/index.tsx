@@ -1,8 +1,9 @@
 import { ButtonContainer } from "./styles";
 
 export type Props = {
-  children: string;
+  children: string | string[];
   theme: "vermelho" | "bege";
+  onClick?: () => void;
 };
 
 const Button = ({ theme, children }: Props) => (

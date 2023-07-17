@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import { color } from "../../styles";
 import { Props } from ".";
+import { Link } from "react-router-dom";
 
 export const HeaderContainer = styled.header<Props>`
   padding: ${(props) => (props.layout === "home" ? "40px" : "64px")};
@@ -24,7 +25,7 @@ export const HeaderContainer = styled.header<Props>`
   }
 `;
 
-export const HeaderLink = styled.a`
+export const HeaderLink = styled(Link)`
   font-size: 18px;
   font-weight: bold;
   text-decoration: none;

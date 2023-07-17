@@ -8,6 +8,12 @@ export const ItemContainer = styled.div`
   color: ${color.vermelho};
   position: relative;
   background-color: ${color.branco};
+
+  > img {
+    width: 480px;
+    height: 217px;
+    object-fit: cover;
+  }
 `;
 
 export const Content = styled.div`
