@@ -7,6 +7,12 @@ export const color = {
   begeClaro: "#FFF8F2",
 };
 
+export const breakpoints = {
+  desktop: "1024px",
+  tablet: "768px",
+  smart: "480px",
+};
+
 export const GlobalStyle = createGlobalStyle`
 *{
     margin: 0; 
@@ -21,8 +27,12 @@ body{
 }
 
 .container{
-    max-width: 1024px;
+  max-width: 1024px;
   width: 100%;
   margin: 0 auto;
+
+  @media (max-width: ${breakpoints.desktop}){
+    max-width: 80%;
+  }
 }
 `;

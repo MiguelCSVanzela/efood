@@ -2,11 +2,14 @@ import { Link } from "react-router-dom";
 
 import logo from "../../assets/images/logo.svg";
 import vector from "../../assets/images/Vector.svg";
-import { HeaderContainer, HeaderLink } from "./styles";
+import restauranteIcon from "../../assets/images/restaurante.svg";
+import cesta from "../../assets/images/cesta-de-piquenique.svg";
+
+import { HeaderContainer, HeaderLink, Icon, Word } from "./styles";
 
 import { useSelector, useDispatch } from "react-redux";
 import { RootReducer } from "../../store";
-import { abrir, fechar } from "../../store/reducers/carrinho";
+import { abrir } from "../../store/reducers/carrinho";
 
 export type Props = {
   layout: "home" | "perfil";
@@ -42,12 +45,21 @@ const Header = ({ layout }: Props) => {
             style={{ backgroundImage: `url(${vector})` }}
           >
             <div className="container">
-              <HeaderLink to="/">Restaurantes</HeaderLink>
+              <HeaderLink to="/">
+                <Word>Restaurantes</Word>
+                <Icon>
+                  <img src={restauranteIcon} />{" "}
+                </Icon>
+              </HeaderLink>
               <Link to="/">
                 <img src={logo} alt="Logo efood" />
               </Link>
               <HeaderLink to="#" onClick={abrirCarrinho}>
-                {itens.length} produto(s) no carrinho
+                <Word>{itens.length} produto(s) no carrinho</Word>
+                <Icon>
+                  {itens.length}
+                  <img src={cesta} />{" "}
+                </Icon>
               </HeaderLink>
             </div>
           </HeaderContainer>

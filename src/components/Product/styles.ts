@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { color } from "../../styles";
+import { breakpoints, color } from "../../styles";
 import { ButtonContainer } from "../Button/styles";
-import Button from "../Button";
 
 export const Container = styled.div`
   background-color: ${color.vermelho};
@@ -17,7 +16,7 @@ export const Container = styled.div`
   }
   p {
     margin: 8px 0;
-    font-weight: 400px;
+    font-weight: 400;
     line-height: 22px;
   }
   img {
@@ -25,6 +24,40 @@ export const Container = styled.div`
     height: 168px;
     object-fit: cover;
     display: block;
+  }
+
+  @media (max-width: ${breakpoints.desktop}) {
+    font-size: 12px;
+    padding: 6px;
+    h3 {
+      font-size: 18px;
+    }
+    img {
+      width: 330px;
+      height: 190px;
+    }
+  }
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 12px;
+    padding: 6px;
+    h3 {
+      font-size: 18px;
+    }
+    img {
+      width: 285px;
+      height: 150px;
+    }
+  }
+  @media (max-width: ${breakpoints.smart}) {
+    font-size: 12px;
+    padding: 6px;
+    h3 {
+      font-size: 18px;
+    }
+    img {
+      width: 330px;
+      height: 180px;
+    }
   }
 `;
 
@@ -77,6 +110,13 @@ export const ModalContent = styled.div`
     height: 280px;
     object-fit: cover;
   }
+  @media (max-width: ${breakpoints.desktop}) {
+    padding: 16px;
+    img {
+      width: 250px;
+      height: 250px;
+    }
+  }
 `;
 
 export const Text = styled.div`
@@ -109,5 +149,18 @@ export const Text = styled.div`
     font-size: 14px;
     margin-bottom: 16px;
     margin-top: 16px;
+  }
+  @media (max-width: ${breakpoints.desktop}) {
+    height: 250px;
+
+    h3 {
+      font-size: 16px;
+    }
+
+    p {
+      font-size: 8px;
+      margin-bottom: 8px;
+      margin-top: 8px;
+    }
   }
 `;

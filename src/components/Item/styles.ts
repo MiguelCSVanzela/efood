@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { color } from "../../styles";
+import { breakpoints, color } from "../../styles";
 import { ButtonContainer } from "../Button/styles";
 
 export const ItemContainer = styled.div`
@@ -14,6 +14,21 @@ export const ItemContainer = styled.div`
     height: 217px;
     object-fit: cover;
   }
+
+  @media (max-width: ${breakpoints.desktop}) {
+    > img {
+      width: 300px;
+      height: 150px;
+      object-fit: cover;
+    }
+  }
+  @media (max-width: ${breakpoints.tablet}) {
+    > img {
+      width: 340px;
+      height: 200px;
+      object-fit: cover;
+    }
+  }
 `;
 
 export const Content = styled.div`
@@ -26,6 +41,17 @@ export const Content = styled.div`
   ${ButtonContainer} {
     position: absolute;
     bottom: 10px;
+  }
+
+  @media (max-width: ${breakpoints.desktop}) {
+    padding: 6px;
+    font-size: 12px;
+    p {
+      margin: 14px 0 40px;
+    }
+    ${ButtonContainer} {
+      bottom: 8px;
+    }
   }
 `;
 
@@ -44,5 +70,18 @@ export const HeaderItem = styled.div`
   font-weight: bolder;
   span {
     font-size: 24px;
+  }
+
+  @media (max-width: ${breakpoints.desktop}) {
+    font-size: 16px;
+    line-height: 20px;
+
+    span {
+      font-size: 20px;
+      img {
+        height: 18px;
+        width: 18px;
+      }
+    }
   }
 `;
