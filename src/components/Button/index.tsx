@@ -6,8 +6,10 @@ export type Props = {
   onClick?: () => void;
 };
 
-const Button = ({ theme, children }: Props) => (
-  <ButtonContainer theme={theme}>{children}</ButtonContainer>
+const Button = ({ theme, children, onClick }: Props) => (
+  <ButtonContainer onClick={onClick} theme={theme}>
+    {children}
+  </ButtonContainer>
 );
 
 export default Button;

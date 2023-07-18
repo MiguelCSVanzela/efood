@@ -19,6 +19,7 @@ const Products = ({ pratos }: Props) => {
               descricao={prato.descricao}
               porcao={prato.porcao}
               preco={prato.preco}
+              prato={prato}
             />
           </li>
         ))}

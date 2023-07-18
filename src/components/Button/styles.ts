@@ -23,5 +23,6 @@ export const ButtonContainer = styled.button<Props>`
     border-color: ${(props) =>
       props.theme === "bege" ? `${color.bege}` : `${color.vermelho}`};
     cursor: pointer;
+    transform: scale(1.05);
   }
 `;

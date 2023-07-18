@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { color } from "../../styles";
 import { ButtonContainer } from "../Button/styles";
+import Button from "../Button";
 
 export const Container = styled.div`
   background-color: ${color.vermelho};
