@@ -1,34 +1,35 @@
-import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 
-import logo from "../../assets/images/logo.svg";
-import vector from "../../assets/images/Vector.svg";
-import restauranteIcon from "../../assets/images/restaurante.svg";
-import cesta from "../../assets/images/cesta-de-piquenique.svg";
+import { RootReducer } from '../../store'
+import { openCart } from '../../store/reducers/cart'
 
-import { HeaderContainer, HeaderLink, Icon, Word } from "./styles";
-
-import { useSelector, useDispatch } from "react-redux";
-import { RootReducer } from "../../store";
-import { abrir } from "../../store/reducers/carrinho";
+import logo from '../../assets/images/logo.svg'
+import vector from '../../assets/images/Vector.svg'
+import restaurantIcon from '../../assets/images/restaurante.svg'
+import basketIcon from '../../assets/images/cesta-de-piquenique.svg'
+import * as S from './styles'
 
 export type Props = {
-  layout: "home" | "perfil";
-};
+  layout: 'home' | 'perfil'
+}
 
 const Header = ({ layout }: Props) => {
-  const { itens } = useSelector((state: RootReducer) => state.carrinho);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
+  const { itens } = useSelector((state: RootReducer) => state.cart)
 
-  const abrirCarrinho = () => {
-    dispatch(abrir());
-  };
+  const open = () => {
+    dispatch(openCart())
+  }
+
   return (
     <>
-      {layout === "home" ? (
+      {layout === 'home' ? (
         <>
-          <HeaderContainer
+          <S.HeaderContainer
             layout={layout}
             style={{ backgroundImage: `url(${vector})` }}
+            id="home"
           >
             <div className="container">
               <Link to="/">
@@ -36,37 +37,39 @@ const Header = ({ layout }: Props) => {
               </Link>
               <p>Viva experiências gastronômicas no conforto da sua casa</p>
             </div>
-          </HeaderContainer>
+          </S.HeaderContainer>
         </>
       ) : (
         <>
-          <HeaderContainer
+          <S.HeaderContainer
             layout={layout}
             style={{ backgroundImage: `url(${vector})` }}
           >
             <div className="container">
-              <HeaderLink to="/">
-                <Word>Restaurantes</Word>
-                <Icon>
-                  <img src={restauranteIcon} />{" "}
-                </Icon>
-              </HeaderLink>
+              <S.HeaderLink to="/">
+                <S.Complement>Restaurantes</S.Complement>
+                <S.Icon>
+                  <img src={restaurantIcon} />{' '}
+                </S.Icon>
+              </S.HeaderLink>
               <Link to="/">
                 <img src={logo} alt="Logo efood" />
               </Link>
-              <HeaderLink to="#" onClick={abrirCarrinho}>
-                <Word>{itens.length} produto(s) no carrinho</Word>
-                <Icon>
+              <S.HeaderLink to="#" onClick={open}>
+                <S.Complement>
+                  {itens.length} produto(s) no carrinho
+                </S.Complement>
+                <S.Icon>
                   {itens.length}
-                  <img src={cesta} />{" "}
-                </Icon>
-              </HeaderLink>
+                  <img src={basketIcon} />{' '}
+                </S.Icon>
+              </S.HeaderLink>
             </div>
-          </HeaderContainer>
+          </S.HeaderContainer>
         </>
       )}
     </>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

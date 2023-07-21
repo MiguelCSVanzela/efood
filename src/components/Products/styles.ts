@@ -1,5 +1,6 @@
-import styled from "styled-components";
-import { breakpoints } from "../../styles";
+import styled from 'styled-components'
+
+import { breakpoints } from '../../styles'
 
 export const ProductContainer = styled.ul`
   display: grid;
@@ -18,4 +19,4 @@ export const ProductContainer = styled.ul`
     gap: 24px;
     margin-bottom: 80px;
   }
-`;
+`

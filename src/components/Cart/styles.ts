@@ -1,7 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-import { color } from "../../styles";
-import { ButtonContainer } from "../Button/styles";
+import { breakpoints, colors } from '../../styles'
+import { ButtonContainer } from '../Button/styles'
+
 export const Overlay = styled.div`
   height: 100%;
   width: 100%;
@@ -10,7 +11,7 @@ export const Overlay = styled.div`
   background-color: #000;
   opacity: 0.7;
   position: absolute;
-`;
+`
 
 export const CartContainer = styled.div`
   position: fixed;
@@ -25,27 +26,31 @@ export const CartContainer = styled.div`
   &.visible {
     display: flex;
   }
-`;
+`
 
 export const SideBar = styled.aside`
   z-index: 1;
-  background-color: ${color.vermelho};
+  background-color: ${colors.salmon};
   max-width: 360px;
   width: 100%;
   padding: 32px 8px 0 8px;
 
   ${ButtonContainer} {
-    font-size: 20px;
+    font-size: 14px;
   }
-`;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    max-width: 300px;
+  }
+`
 
 export const CartItem = styled.li`
-  max-width: 340px;
+  max-width: 280px;
   width: 100%;
   padding: 8px;
   display: flex;
-  background-color: ${color.bege};
-  color: ${color.vermelho};
+  background-color: ${colors.beige};
+  color: ${colors.salmon};
   position: relative;
   margin-bottom: 16px;
   img {
@@ -53,7 +58,7 @@ export const CartItem = styled.li`
     width: 90px;
     object-fit: cover;
   }
-`;
+`
 
 export const Content = styled.div`
   margin-left: 8px;
@@ -82,12 +87,18 @@ export const Content = styled.div`
     font-size: 14px;
     line-height: 22px;
   }
-`;
+`
 
 export const Total = styled.div`
   margin: 40px 0 16px;
-  color: ${color.bege};
+  color: ${colors.beige};
   display: flex;
   justify-content: space-between;
   font-weight: bold;
-`;
+`
+export const Empty = styled.div`
+  color: ${colors.lightBeige};
+  font-size: 16px;
+  width: 100%;
+  text-align: center;
+`

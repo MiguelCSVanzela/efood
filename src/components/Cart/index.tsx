@@ -1,71 +1,78 @@
-import Button from "../Button";
-import lixeira from "../../assets/images/lixeira.svg";
-import {
-  Overlay,
-  CartContainer,
-  SideBar,
-  CartItem,
-  Content,
-  Total,
-} from "./styles";
+import { useSelector, useDispatch } from 'react-redux'
 
-import { useSelector, useDispatch } from "react-redux";
-import { RootReducer } from "../../store";
-import { fechar, remover } from "../../store/reducers/carrinho";
-import { getPrecoFormatado } from "../Product";
+import Button from '../Button'
+import lixeira from '../../assets/images/lixeira.svg'
+import Checkout from '../Checkout'
+
+import { RootReducer } from '../../store'
+import { closeCart, remove, inCheckout } from '../../store/reducers/cart'
+import { getFormattedPrice } from '../../utils'
+
+import * as S from './styles'
 
 const Cart = () => {
-  const { estaAberto, itens } = useSelector(
-    (state: RootReducer) => state.carrinho
-  );
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
+  const { isOpen, itens, checkout } = useSelector(
+    (state: RootReducer) => state.cart
+  )
 
-  const fecharCarrinho = () => {
-    dispatch(fechar());
-  };
-  const removeDoCarrinho = (id: number) => {
-    dispatch(remover(id));
-  };
+  const close = () => {
+    dispatch(closeCart())
+  }
+
+  const removeItem = (id: number) => {
+    dispatch(remove(id))
+  }
+
   const getTotal = () => {
-    return itens.reduce((acumulador, valorAtual) => {
-      return (acumulador += valorAtual.preco);
-    }, 0);
-  };
-
-  if (!itens.length) {
-    dispatch(fechar());
+    return itens.reduce((acumulator, currentValue) => {
+      return (acumulator += currentValue.preco)
+    }, 0)
   }
 
   return (
-    <CartContainer className={estaAberto ? "visible" : ""}>
-      <Overlay onClick={fecharCarrinho} />
+    <S.CartContainer className={isOpen ? 'visible' : ''}>
+      <S.Overlay onClick={close} />
 
-      <SideBar>
-        <ul>
-          {itens.map((item) => (
-            <CartItem key={item.id}>
-              <img src={item.foto} alt={item.nome} />
-              <Content>
-                <h3>{item.nome}</h3>
-                <span>{getPrecoFormatado(item.preco)}</span>
-                <img
-                  src={lixeira}
-                  alt="excluir prato da lista"
-                  onClick={() => removeDoCarrinho(item.id)}
-                />
-              </Content>
-            </CartItem>
-          ))}
-        </ul>
+      <S.SideBar>
+        {checkout ? (
+          <Checkout />
+        ) : (
+          <div>
+            {itens.length > 0 ? (
+              <>
+                <ul>
+                  {itens.map((item) => (
+                    <S.CartItem key={item.id}>
+                      <img src={item.foto} alt={item.nome} />
+                      <S.Content>
+                        <h3>{item.nome}</h3>
+                        <span>{getFormattedPrice(item.preco)}</span>
+                        <img
+                          src={lixeira}
+                          alt="excluir prato da lista"
+                          onClick={() => removeItem(item.id)}
+                        />
+                      </S.Content>
+                    </S.CartItem>
+                  ))}
+                </ul>
+                <S.Total>
+                  <h3>Valor Total: </h3>
+                  <span>{getFormattedPrice(getTotal())}</span>
+                </S.Total>
+                <Button onClick={() => dispatch(inCheckout())} theme="beige">
+                  Continuar com a entrega
+                </Button>
+              </>
+            ) : (
+              <S.Empty>Ainda não há itens em seu carrinho</S.Empty>
+            )}
+          </div>
+        )}
+      </S.SideBar>
+    </S.CartContainer>
+  )
+}
 
-        <Total>
-          <h3>Valor Total: </h3>
-          <span>{getPrecoFormatado(getTotal())}</span>
-        </Total>
-        <Button theme="bege">Continuar com a entrega</Button>
-      </SideBar>
-    </CartContainer>
-  );
-};
-
-export default Cart;
+export default Cart

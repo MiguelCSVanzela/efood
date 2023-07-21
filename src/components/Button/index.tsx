@@ -1,15 +1,22 @@
-import { ButtonContainer } from "./styles";
+import { ButtonContainer } from './styles'
 
 export type Props = {
-  children: string | string[];
-  theme: "vermelho" | "bege";
-  onClick?: () => void;
-};
+  children: string | string[]
+  theme: 'salmon' | 'beige'
+  onClick?: () => void
+  disabled?: boolean
+  type?: string
+}
 
-const Button = ({ theme, children, onClick }: Props) => (
-  <ButtonContainer onClick={onClick} theme={theme}>
+const Button = ({ theme, children, onClick, disabled, type }: Props) => (
+  <ButtonContainer
+    type={type}
+    disabled={disabled}
+    onClick={onClick}
+    theme={theme}
+  >
     {children}
   </ButtonContainer>
-);
+)
 
-export default Button;
+export default Button

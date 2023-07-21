@@ -1,22 +1,22 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-import { breakpoints, color } from "../../styles";
-import { Props } from ".";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
+import { Props } from '.'
+import { breakpoints, colors } from '../../styles'
 
 export const HeaderContainer = styled.header<Props>`
-  padding: ${(props) => (props.layout === "home" ? "40px" : "64px")};
+  padding: ${(props) => (props.layout === 'home' ? '40px' : '64px')};
 
   div {
     display: grid;
     grid-template-columns: ${(props) =>
-      props.layout === "perfil" ? "repeat(3, 1fr)" : "1fr"};
+      props.layout === 'perfil' ? 'repeat(3, 1fr)' : '1fr'};
     text-align: center;
     align-items: center;
   }
 
   p {
-    color: ${color.vermelho};
+    color: ${colors.salmon};
     font-size: 36px;
     font-weight: bolder;
     text-align: center;
@@ -34,7 +34,7 @@ export const HeaderContainer = styled.header<Props>`
     }
   }
   @media (max-width: ${breakpoints.tablet}) {
-    padding: ${(props) => (props.layout === "home" ? "40px" : "30px")};
+    padding: ${(props) => (props.layout === 'home' ? '40px' : '30px')};
     background-size: cover;
 
     p {
@@ -43,13 +43,13 @@ export const HeaderContainer = styled.header<Props>`
       width: 250px;
     }
   }
-`;
+`
 
 export const HeaderLink = styled(Link)`
   font-size: 18px;
   font-weight: bold;
   text-decoration: none;
-  color: ${color.vermelho};
+  color: ${colors.salmon};
   margin: 0 auto;
   @media (max-width: ${breakpoints.desktop}) {
     font-size: 16px;
@@ -57,7 +57,7 @@ export const HeaderLink = styled(Link)`
   @media (max-width: ${breakpoints.tablet}) {
     font-size: 14px;
   }
-`;
+`
 
 export const Icon = styled.span`
   display: none;
@@ -69,13 +69,13 @@ export const Icon = styled.span`
     align-self: center;
     margin: 20px;
   }
-`;
+`
 
-export const Word = styled.span`
+export const Complement = styled.span`
   display: flex;
   text-align: right;
 
   @media (max-width: ${breakpoints.smart}) {
     display: none;
   }
-`;
+`

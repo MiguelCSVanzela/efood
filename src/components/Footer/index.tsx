@@ -1,18 +1,20 @@
-import logo from "../../assets/images/logo.svg";
-import instagram from "../../assets/images/instagram-icon.svg";
-import facebook from "../../assets/images/facebook-icon.svg";
-import twitter from "../../assets/images/twitter-icon.svg";
-import {
-  Footer as FooterContainer,
-  SocialLinks,
-  AppDescrition,
-} from "./styles";
+import { HashLink } from 'react-router-hash-link'
+
+import logo from '../../assets/images/logo.svg'
+import instagram from '../../assets/images/instagram-icon.svg'
+import facebook from '../../assets/images/facebook-icon.svg'
+import twitter from '../../assets/images/twitter-icon.svg'
+
+import * as S from './styles'
+
 const Footer = () => {
   return (
-    <FooterContainer>
+    <S.FooterContainer>
       <div className="container">
-        <img src={logo} alt="logo efood" />
-        <SocialLinks>
+        <HashLink to="/#home">
+          <img src={logo} alt="logo efood" />
+        </HashLink>
+        <S.SocialLinks>
           <li>
             <a href="#">
               <img src={instagram} alt="" />
@@ -28,15 +30,15 @@ const Footer = () => {
               <img src={twitter} alt="" />
             </a>
           </li>
-        </SocialLinks>
-        <AppDescrition>
+        </S.SocialLinks>
+        <S.AppDescrition>
           A efood é uma plataforma para divulgação de estabelecimentos, a
           responsabilidade pela entrega, qualidade dos produtos é toda do
-          estabelecimento contratado.{" "}
-        </AppDescrition>
+          estabelecimento contratado.{' '}
+        </S.AppDescrition>
       </div>
-    </FooterContainer>
-  );
-};
+    </S.FooterContainer>
+  )
+}
 
-export default Footer;
+export default Footer

@@ -1,31 +1,31 @@
-import Item from "../Item";
-import { ListContainer } from "./styles";
-import { Restaurante } from "../../pages/Home";
+import Item from '../Item'
+
+import { ListContainer } from './styles'
 
 type Props = {
-  restaurantes: Restaurante[];
-};
+  restaurants: Restaurante[]
+}
 
-const List = ({ restaurantes }: Props) => {
+const List = ({ restaurants }: Props) => {
   return (
     <ListContainer>
       <div className="container">
-        {restaurantes.map((restaurante) => (
-          <li key={restaurante.id}>
+        {restaurants.map((restaurant) => (
+          <li key={restaurant.id}>
             <Item
-              id={restaurante.id}
-              titulo={restaurante.titulo}
-              destacado={restaurante.destacado}
-              tipo={restaurante.tipo}
-              descricao={restaurante.descricao}
-              avaliacao={restaurante.avaliacao}
-              capa={restaurante.capa}
+              id={restaurant.id}
+              title={restaurant.titulo}
+              highlighted={restaurant.destacado}
+              type={restaurant.tipo}
+              description={restaurant.descricao}
+              evaluation={restaurant.avaliacao}
+              cover={restaurant.capa}
             />
           </li>
         ))}
       </div>
     </ListContainer>
-  );
-};
+  )
+}
 
-export default List;
+export default List

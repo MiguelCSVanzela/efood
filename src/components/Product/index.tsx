@@ -1,95 +1,92 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
-import { adicionar, abrir } from "../../store/reducers/carrinho";
-import {
-  Container,
-  BtnDetails,
-  ModalContainer,
-  ModalContent,
-  Text,
-} from "./styles";
-import closeIcon from "../../assets/images/fechar.png";
-import Button from "../Button";
-import { Produto } from "../../pages/Home";
+import { add, openCart } from '../../store/reducers/cart'
+import { getFormattedPrice } from '../../utils'
 
-export function getPrecoFormatado(preco = 0) {
-  return new Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  }).format(preco);
-}
+import closeIcon from '../../assets/images/fechar.png'
+import Button from '../Button'
+import * as S from './styles'
 
 type Props = {
-  foto: string;
-  preco: number;
-  id: number;
-  nome: string;
-  descricao: string;
-  porcao: string;
-  prato: Produto;
-};
+  id: number
+  cover: string
+  price: number
+  name: string
+  description: string
+  portion: string
+  dish: Produto
+}
 const Product = ({
-  foto,
-  preco,
+  cover,
+  price,
   id,
-  nome,
-  descricao,
-  porcao,
-  prato,
+  name,
+  description,
+  portion,
+  dish
 }: Props) => {
-  const [isClosed, setIsClosed] = useState(true);
-  const dispatch = useDispatch();
+  const [isClosed, setIsClosed] = useState(true)
+  const dispatch = useDispatch()
 
-  function getDescricao(descricao: string) {
-    if (descricao.length > 132) {
-      return descricao.slice(0, 132) + "...";
+  function getDescription(description: string) {
+    if (description.length > 132) {
+      return description.slice(0, 132) + '...'
     }
   }
 
   const closeModal = () => {
-    setIsClosed(true);
-  };
+    setIsClosed(true)
+  }
 
   function addToCart() {
-    dispatch(adicionar(prato));
-    dispatch(abrir());
+    dispatch(add(dish))
+    dispatch(openCart())
   }
 
   return (
     <>
-      <Container>
+      <S.Container>
         <li key={id}>
-          <img src={foto} alt={nome} />
-          <h3>{nome}</h3>
-          <p>{getDescricao(descricao)}</p>
-          <BtnDetails theme="bege" onClick={() => setIsClosed(false)}>
+          <img src={cover} alt={name} />
+          <h3>{name}</h3>
+          <p>{getDescription(description)}</p>
+          <S.BtnDetails theme="beige" onClick={() => setIsClosed(false)}>
             Mais Detalhes
-          </BtnDetails>
+          </S.BtnDetails>
         </li>
-      </Container>
-      <ModalContainer className={`container ${isClosed ? "invisible" : ""}`}>
-        <ModalContent>
+      </S.Container>
+      <S.ModalContainer className={`container ${isClosed ? 'invisible' : ''}`}>
+        <S.ModalContent>
           <div>
-            <img src={foto} alt={nome} />
+            <img
+              className="closeIcon2"
+              src={closeIcon}
+              onClick={() => closeModal()}
+            />
+            <img src={cover} alt={name} />
           </div>
-          <Text>
+          <S.Text>
             <div>
-              <img src={closeIcon} onClick={() => closeModal()} />
-              <h3>{nome}</h3>
-              <p>{descricao}</p>
-              <p>Serve: De {porcao}</p>
+              <img
+                className="closeIcon"
+                src={closeIcon}
+                onClick={() => closeModal()}
+              />
+              <h3>{name}</h3>
+              <p>{description}</p>
+              <p>Serve: De {portion}</p>
             </div>
             <div>
-              <Button theme="bege" onClick={addToCart}>
-                Adicionar ao carrinho - {getPrecoFormatado(preco).toString()}
+              <Button theme="beige" onClick={addToCart}>
+                Adicionar ao carrinho - {getFormattedPrice(price).toString()}
               </Button>
             </div>
-          </Text>
-        </ModalContent>
-      </ModalContainer>
+          </S.Text>
+        </S.ModalContent>
+      </S.ModalContainer>
     </>
-  );
-};
+  )
+}
 
-export default Product;
+export default Product

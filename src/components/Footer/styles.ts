@@ -1,9 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-import { color } from "../../styles";
-export const Footer = styled.footer`
-  background-color: ${color.bege};
-  color: ${color.vermelho};
+import { colors } from '../../styles'
+
+export const FooterContainer = styled.footer`
+  background-color: ${colors.beige};
+  color: ${colors.salmon};
   padding-top: 40px;
 
   & > div {
@@ -11,7 +12,7 @@ export const Footer = styled.footer`
     flex-direction: column;
     align-items: center;
   }
-`;
+`
 
 export const SocialLinks = styled.ul`
   display: grid;
@@ -23,11 +24,11 @@ export const SocialLinks = styled.ul`
   li {
     height: 24px;
   }
-`;
+`
 
 export const AppDescrition = styled.p`
   font-size: 10px;
   font-weight: 400px;
   text-align: center;
   margin-bottom: 40px;
-`;
+`

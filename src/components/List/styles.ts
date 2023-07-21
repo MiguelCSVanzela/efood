@@ -1,5 +1,6 @@
-import styled from "styled-components";
-import { breakpoints } from "../../styles";
+import styled from 'styled-components'
+
+import { breakpoints } from '../../styles'
 
 export const ListContainer = styled.div`
   margin-bottom: 120px;
@@ -31,4 +32,4 @@ export const ListContainer = styled.div`
       gap: 20px;
     }
   }
-`;
+`

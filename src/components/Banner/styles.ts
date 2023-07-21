@@ -1,12 +1,12 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-import { breakpoints, color } from "../../styles";
+import { breakpoints, colors } from '../../styles'
 
 export const BannerContainer = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   height: 280px;
-  color: ${color.branco};
+  color: ${colors.white};
 
   & > div {
     background-color: rgba(0, 0, 0, 0.5);
@@ -20,7 +20,7 @@ export const BannerContainer = styled.div`
       height: 200px;
     }
   }
-`;
+`
 
 export const TextContainer = styled.div`
   display: flex;
@@ -41,4 +41,4 @@ export const TextContainer = styled.div`
   @media (max-width: ${breakpoints.desktop}) {
     font-size: 24px;
   }
-`;
+`

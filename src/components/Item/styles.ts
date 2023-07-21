@@ -1,13 +1,14 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-import { breakpoints, color } from "../../styles";
-import { ButtonContainer } from "../Button/styles";
+import { breakpoints, colors } from '../../styles'
+import { ButtonContainer } from '../Button/styles'
 
 export const ItemContainer = styled.div`
-  border: 1px solid ${color.vermelho};
-  color: ${color.vermelho};
+  border: 1px solid ${colors.salmon};
+  color: ${colors.salmon};
   position: relative;
-  background-color: ${color.branco};
+  background-color: ${colors.white};
+  height: 100%;
 
   > img {
     width: 480px;
@@ -29,7 +30,7 @@ export const ItemContainer = styled.div`
       object-fit: cover;
     }
   }
-`;
+`
 
 export const Content = styled.div`
   padding: 8px;
@@ -53,13 +54,13 @@ export const Content = styled.div`
       bottom: 8px;
     }
   }
-`;
+`
 
 export const Tags = styled.div`
   top: 8px;
   right: 16px;
   position: absolute;
-`;
+`
 
 export const HeaderItem = styled.div`
   font-size: 18px;
@@ -84,4 +85,4 @@ export const HeaderItem = styled.div`
       }
     }
   }
-`;
+`

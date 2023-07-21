@@ -1,12 +1,27 @@
-import styled from "styled-components";
-import { breakpoints, color } from "../../styles";
-import { ButtonContainer } from "../Button/styles";
+import styled from 'styled-components'
+
+import { breakpoints, colors } from '../../styles'
+import { ButtonContainer } from '../Button/styles'
 
 export const Container = styled.div`
-  background-color: ${color.vermelho};
-  color: ${color.bege};
-  padding: 8px;
+  background-color: ${colors.salmon};
+  color: ${colors.beige};
   font-size: 14px;
+  position: relative;
+
+  .closeIcon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+
+    &:hover {
+      transform: scale(1.8);
+    }
+  }
 
   h3 {
     margin-top: 8px;
@@ -28,7 +43,6 @@ export const Container = styled.div`
 
   @media (max-width: ${breakpoints.desktop}) {
     font-size: 12px;
-    padding: 6px;
     h3 {
       font-size: 18px;
     }
@@ -39,7 +53,6 @@ export const Container = styled.div`
   }
   @media (max-width: ${breakpoints.tablet}) {
     font-size: 12px;
-    padding: 6px;
     h3 {
       font-size: 18px;
     }
@@ -50,7 +63,6 @@ export const Container = styled.div`
   }
   @media (max-width: ${breakpoints.smart}) {
     font-size: 12px;
-    padding: 6px;
     h3 {
       font-size: 18px;
     }
@@ -59,9 +71,9 @@ export const Container = styled.div`
       height: 180px;
     }
   }
-`;
+`
 
-export const BtnDetails = styled(ButtonContainer)``;
+export const BtnDetails = styled(ButtonContainer)``
 
 export const Modal = styled.div`
   display: none;
@@ -69,7 +81,7 @@ export const Modal = styled.div`
   &.visible {
     display: flex;
   }
-`;
+`
 
 export const ModalContainer = styled.div`
   width: 100%;
@@ -89,27 +101,33 @@ export const ModalContainer = styled.div`
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.7);
     position: absolute;
-    content: "";
+    content: '';
+    margin: 0;
   }
   &.invisible {
     display: none;
   }
-`;
+`
 
 export const ModalContent = styled.div`
-  background-color: ${color.vermelho};
+  background-color: ${colors.salmon};
   position: relative;
   max-height: 480px;
   z-index: 1;
   display: flex;
   align-items: flex-start;
   padding: 32px;
-  color: ${color.begeClaro};
+  color: ${colors.lightBeige};
   img {
     width: 280px;
     height: 280px;
     object-fit: cover;
   }
+
+  .closeIcon2 {
+    display: none;
+  }
+
   @media (max-width: ${breakpoints.desktop}) {
     padding: 16px;
     img {
@@ -117,7 +135,26 @@ export const ModalContent = styled.div`
       height: 250px;
     }
   }
-`;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    display: block;
+    max-height: 90vh;
+    text-align: center;
+    img {
+      width: 280px;
+      height: 280px;
+    }
+    .closeIcon2 {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 16px;
+      width: 16px;
+      margin: 8px;
+      display: inline;
+    }
+  }
+`
 
 export const Text = styled.div`
   position: relative;
@@ -127,7 +164,7 @@ export const Text = styled.div`
   justify-content: space-between;
   height: 280px;
 
-  img {
+  .closeIcon {
     position: absolute;
     right: 0;
     top: 0;
@@ -140,6 +177,7 @@ export const Text = styled.div`
       transform: scale(1.8);
     }
   }
+
   h3 {
     font-weight: bold;
     font-size: 18px;
@@ -150,8 +188,27 @@ export const Text = styled.div`
     margin-bottom: 16px;
     margin-top: 16px;
   }
+
   @media (max-width: ${breakpoints.desktop}) {
     height: 250px;
+    justify-content: space-between;
+
+    p {
+      font-size: 14px;
+      margin: 8px 0;
+    }
+
+    ${ButtonContainer} {
+      position: absolute;
+      bottom: 0px;
+    }
+  }
+  @media (max-width: ${breakpoints.tablet}) {
+    height: 90vh;
+
+    .closeIcon {
+      display: none;
+    }
 
     h3 {
       font-size: 16px;
@@ -163,4 +220,4 @@ export const Text = styled.div`
       margin-top: 8px;
     }
   }
-`;
+`
