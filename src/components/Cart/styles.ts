@@ -45,7 +45,6 @@ export const SideBar = styled.aside`
 `
 
 export const CartItem = styled.li`
-  max-width: 280px;
   width: 100%;
   padding: 8px;
   display: flex;

@@ -8,6 +8,7 @@ export const Container = styled.div`
   color: ${colors.beige};
   font-size: 14px;
   position: relative;
+  padding: 8px;
 
   .closeIcon {
     position: absolute;
