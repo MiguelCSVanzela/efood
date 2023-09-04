@@ -8,7 +8,7 @@ type InputGroupType = {
 }
 
 export const Container = styled.div<InputGroupType>`
-  color: ${colors.beige};
+  color: ${colors.platium};
 
   ${ButtonContainer} {
     margin-bottom: 0;
@@ -54,26 +54,26 @@ export const InputGroup = styled.div<InputGroupType>`
   input {
     margin: 8px 0;
     height: 32px;
-    background-color: ${colors.beige};
+    background-color: ${colors.platium};
     border: none;
     padding: 8px;
     font-weight: bold;
-    color: ${colors.darkGray};
+    color: ${colors.dark};
     max-width: ${(props) => (props.maxWidth ? props.maxWidth : '100%')};
     width: 100%;
     transition: all 0.5s ease;
 
     &.error {
-      background-color: ${colors.darkSalmon};
-      border: 1px solid ${colors.white};
-      outline: 1px solid ${colors.white};
-      color: ${colors.lightBeige};
+      background-color: ${colors.rose};
+      border: 1px solid ${colors.platium};
+      outline: 1px solid ${colors.platium};
+      color: ${colors.platium};
     }
   }
 `
 export const Error = styled.span<InputGroupType>`
-  background-color: ${colors.beige};
-  color: ${colors.salmon};
+  background-color: ${colors.platium};
+  color: ${colors.rose};
   padding: 0 2px;
   border-radius: 4px;
   text-align: center;
@@ -87,8 +87,8 @@ export const ButtonNav = styled.a`
   display: block;
   text-align: center;
   font-size: 14px;
-  color: ${colors.salmon};
-  background-color: ${colors.beige};
+  color: ${colors.sky};
+  background-color: ${colors.platium};
   text-decoration: none;
   font-weight: bolder;
   border: 1px solid transparent;
@@ -96,9 +96,9 @@ export const ButtonNav = styled.a`
   margin: 8px 0;
 
   &:hover {
-    color: ${colors.beige};
-    background-color: ${colors.salmon};
-    border-color: ${colors.beige};
+    color: ${colors.platium};
+    background-color: ${colors.sky};
+    border-color: ${colors.platium};
     cursor: pointer;
     transform: scale(1.01);
   }

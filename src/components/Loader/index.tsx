@@ -6,7 +6,7 @@ import { Container } from './styles'
 const Loader = () => {
   return (
     <Container>
-      <PropagateLoader color={colors.salmon} />
+      <PropagateLoader color={colors.sky} />
     </Container>
   )
 }

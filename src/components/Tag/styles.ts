@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import { colors } from '../../styles'
 
 export const TagContainer = styled.div`
-  background-color: ${colors.salmon};
-  color: ${colors.beige};
+  background-color: ${colors.dark};
+  color: ${colors.platium};
   font-size: 12px;
   font-weight: bold;
   display: inline-block;

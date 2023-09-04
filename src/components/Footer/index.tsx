@@ -11,23 +11,32 @@ const Footer = () => {
   return (
     <S.FooterContainer>
       <div className="container">
-        <HashLink to="/#home">
-          <img src={logo} alt="logo efood" />
+        <HashLink smooth to="/#home">
+          <img src={logo} className="logo" alt="logo efood" />
         </HashLink>
         <S.SocialLinks>
           <li>
             <a href="#">
-              <img src={instagram} alt="" />
+              <img
+                src={instagram}
+                alt="Conheça nossos produtos no nosso instagram"
+              />
             </a>
           </li>
           <li>
             <a href="#">
-              <img src={facebook} alt="" />
+              <img
+                src={facebook}
+                alt="Conheça nossos produtos no nosso facebook"
+              />
             </a>
           </li>
           <li>
             <a href="#">
-              <img src={twitter} alt="" />
+              <img
+                src={twitter}
+                alt="Conheça nossos produtos no nosso tweeter"
+              />
             </a>
           </li>
         </S.SocialLinks>

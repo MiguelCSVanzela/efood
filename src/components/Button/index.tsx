@@ -2,7 +2,7 @@ import { ButtonContainer } from './styles'
 
 export type Props = {
   children: string | string[]
-  theme: 'salmon' | 'beige'
+  theme: 'normal' | 'sky'
   onClick?: () => void
   disabled?: boolean
   type?: string

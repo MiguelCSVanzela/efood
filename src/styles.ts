@@ -1,12 +1,12 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const colors = {
-  salmon: '#E66767',
   white: '#FFFFFF',
-  beige: '#FFEBD9',
-  lightBeige: '#FFF8F2',
-  darkGray: '#4B4B4B',
-  darkSalmon: '#A01F1F'
+  forest: '#97D8C4',
+  dark: '#2A2D34',
+  rose: '#D81159',
+  sky: '#118AB2',
+  platium: '#E6E8E6'
 }
 
 export const breakpoints = {
@@ -25,7 +25,19 @@ export const GlobalStyle = createGlobalStyle`
 
 body{
     font-family: Roboto, sans-serif;
-    background-color: ${colors.lightBeige};
+    background-color: ${colors.dark};
+    scroll-behavior: smooth;
+}
+
+.logo {
+  height: 100px;
+  transition: all 0.3s ease-in-out;
+  border-radius: 8px;
+}
+
+
+.logo:hover{
+  background-color: ${colors.sky};
 }
 
 .container{

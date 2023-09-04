@@ -61,7 +61,7 @@ const Cart = () => {
                   <h3>Valor Total: </h3>
                   <span>{getFormattedPrice(getTotal())}</span>
                 </S.Total>
-                <Button onClick={() => dispatch(inCheckout())} theme="beige">
+                <Button onClick={() => dispatch(inCheckout())} theme="sky">
                   Continuar com a entrega
                 </Button>
               </>

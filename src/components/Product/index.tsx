@@ -51,7 +51,7 @@ const Product = ({
           <img src={cover} alt={name} />
           <h3>{name}</h3>
           <p>{getDescription(description)}</p>
-          <S.BtnDetails theme="beige" onClick={() => setIsClosed(false)}>
+          <S.BtnDetails theme="sky" onClick={() => setIsClosed(false)}>
             Mais Detalhes
           </S.BtnDetails>
         </li>
@@ -78,7 +78,7 @@ const Product = ({
               <p>Serve: De {portion}</p>
             </div>
             <div>
-              <Button theme="beige" onClick={addToCart}>
+              <Button theme="sky" onClick={addToCart}>
                 Adicionar ao carrinho - {getFormattedPrice(price).toString()}
               </Button>
             </div>

@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import { colors } from '../../styles'
 
 export const FooterContainer = styled.footer`
-  background-color: ${colors.beige};
-  color: ${colors.salmon};
+  background-color: ${colors.platium};
+  color: ${colors.dark};
   padding-top: 40px;
 
   & > div {
@@ -15,19 +15,24 @@ export const FooterContainer = styled.footer`
 `
 
 export const SocialLinks = styled.ul`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 8px;
-  margin: 32px 0 80px;
-  max-width: 80px;
+  display: flex;
+  margin: 32px auto;
+  gap: 8px;
 
-  li {
-    height: 24px;
+  img {
+    height: 48px;
+    padding: 8px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  img:hover {
+    background-color: ${colors.sky};
   }
 `
 
 export const AppDescrition = styled.p`
-  font-size: 10px;
+  font-size: 32px;
   font-weight: 400px;
   text-align: center;
   margin-bottom: 40px;

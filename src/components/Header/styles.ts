@@ -6,6 +6,16 @@ import { breakpoints, colors } from '../../styles'
 
 export const HeaderContainer = styled.header<Props>`
   padding: ${(props) => (props.layout === 'home' ? '40px' : '64px')};
+  background-color: ${colors.platium};
+  .logo {
+    height: 100px;
+    transition: all 0.3s ease-in-out;
+    border-radius: 8px;
+  }
+
+  .logo:hover {
+    background-color: ${colors.sky};
+  }
 
   div {
     display: grid;
@@ -16,8 +26,8 @@ export const HeaderContainer = styled.header<Props>`
   }
 
   p {
-    color: ${colors.salmon};
-    font-size: 36px;
+    color: ${colors.sky};
+    font-size: 32px;
     font-weight: bolder;
     text-align: center;
     line-height: 42px;
@@ -46,10 +56,10 @@ export const HeaderContainer = styled.header<Props>`
 `
 
 export const HeaderLink = styled(Link)`
-  font-size: 18px;
+  font-size: 32px;
   font-weight: bold;
   text-decoration: none;
-  color: ${colors.salmon};
+  color: ${colors.sky};
   margin: 0 auto;
   @media (max-width: ${breakpoints.desktop}) {
     font-size: 16px;

@@ -30,7 +30,7 @@ export const CartContainer = styled.div`
 
 export const SideBar = styled.aside`
   z-index: 1;
-  background-color: ${colors.salmon};
+  background-color: ${colors.dark};
   max-width: 360px;
   width: 100%;
   padding: 32px 8px 0 8px;
@@ -48,8 +48,8 @@ export const CartItem = styled.li`
   width: 100%;
   padding: 8px;
   display: flex;
-  background-color: ${colors.beige};
-  color: ${colors.salmon};
+  background-color: ${colors.platium};
+  color: ${colors.dark};
   position: relative;
   margin-bottom: 16px;
   img {
@@ -90,13 +90,13 @@ export const Content = styled.div`
 
 export const Total = styled.div`
   margin: 40px 0 16px;
-  color: ${colors.beige};
+  color: ${colors.platium};
   display: flex;
   justify-content: space-between;
   font-weight: bold;
 `
 export const Empty = styled.div`
-  color: ${colors.lightBeige};
+  color: ${colors.platium};
   font-size: 16px;
   width: 100%;
   text-align: center;

@@ -2,10 +2,11 @@ import styled from 'styled-components'
 
 import { breakpoints, colors } from '../../styles'
 import { ButtonContainer } from '../Button/styles'
+import Button from '../Button'
 
 export const Container = styled.div`
-  background-color: ${colors.salmon};
-  color: ${colors.beige};
+  background-color: ${colors.platium};
+  color: ${colors.dark};
   font-size: 14px;
   position: relative;
   padding: 8px;
@@ -111,14 +112,15 @@ export const ModalContainer = styled.div`
 `
 
 export const ModalContent = styled.div`
-  background-color: ${colors.salmon};
+  background-color: ${colors.dark};
+  border: 1px solid ${colors.sky};
   position: relative;
   max-height: 480px;
   z-index: 1;
   display: flex;
   align-items: flex-start;
   padding: 32px;
-  color: ${colors.lightBeige};
+  color: ${colors.platium};
   img {
     width: 280px;
     height: 280px;

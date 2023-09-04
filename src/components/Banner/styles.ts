@@ -6,7 +6,7 @@ export const BannerContainer = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   height: 280px;
-  color: ${colors.white};
+  color: ${colors.platium};
 
   & > div {
     background-color: rgba(0, 0, 0, 0.5);

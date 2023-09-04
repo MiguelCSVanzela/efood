@@ -4,8 +4,8 @@ import { breakpoints, colors } from '../../styles'
 import { ButtonContainer } from '../Button/styles'
 
 export const ItemContainer = styled.div`
-  border: 1px solid ${colors.salmon};
-  color: ${colors.salmon};
+  border: 1px solid ${colors.sky};
+  color: ${colors.dark};
   position: relative;
   background-color: ${colors.white};
   height: 100%;

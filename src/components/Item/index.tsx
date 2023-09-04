@@ -45,7 +45,7 @@ const Item = ({
         </S.HeaderItem>
         <p>{getDescription(description)}</p>
         <Link to={`/perfil/${id}`}>
-          <Button theme="salmon">Saiba Mais</Button>
+          <Button theme="normal">Saiba Mais</Button>
         </Link>
       </S.Content>
     </S.ItemContainer>

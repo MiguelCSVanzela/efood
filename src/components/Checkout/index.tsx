@@ -147,7 +147,7 @@ const Checkout = () => {
               gastronômica. Bom apetite!
             </p>
           </div>
-          <Button onClick={cleanCloseCart} theme="beige">
+          <Button onClick={cleanCloseCart} theme="sky">
             Concluir
           </Button>
         </S.Card>
@@ -250,7 +250,7 @@ const Checkout = () => {
                   </S.InputGroup>
                 </S.Row>
               </S.Card>
-              <Button theme="beige" type="submit">
+              <Button theme="sky" type="submit">
                 {isLoading ? 'Finalizando Compra...' : 'Finalizar Pagamento'}
               </Button>
               <S.ButtonNav onClick={() => setCardPayment(false)}>

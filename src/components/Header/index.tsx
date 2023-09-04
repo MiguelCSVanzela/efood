@@ -26,14 +26,10 @@ const Header = ({ layout }: Props) => {
     <>
       {layout === 'home' ? (
         <>
-          <S.HeaderContainer
-            layout={layout}
-            style={{ backgroundImage: `url(${vector})` }}
-            id="home"
-          >
+          <S.HeaderContainer layout={layout} id="home">
             <div className="container">
               <Link to="/">
-                <img src={logo} alt="Logo efood" />
+                <img src={logo} className="logo" alt="Logo efood" />
               </Link>
               <p>Viva experiências gastronômicas no conforto da sua casa</p>
             </div>
@@ -41,10 +37,7 @@ const Header = ({ layout }: Props) => {
         </>
       ) : (
         <>
-          <S.HeaderContainer
-            layout={layout}
-            style={{ backgroundImage: `url(${vector})` }}
-          >
+          <S.HeaderContainer layout={layout}>
             <div className="container">
               <S.HeaderLink to="/">
                 <S.Complement>Restaurantes</S.Complement>
@@ -53,12 +46,10 @@ const Header = ({ layout }: Props) => {
                 </S.Icon>
               </S.HeaderLink>
               <Link to="/">
-                <img src={logo} alt="Logo efood" />
+                <img src={logo} className="logo" alt="Logo efood" />
               </Link>
               <S.HeaderLink to="#" onClick={open}>
-                <S.Complement>
-                  {itens.length} produto(s) no carrinho
-                </S.Complement>
+                <S.Complement>{itens.length} produto(s)</S.Complement>
                 <S.Icon>
                   {itens.length}
                   <img src={basketIcon} />{' '}
